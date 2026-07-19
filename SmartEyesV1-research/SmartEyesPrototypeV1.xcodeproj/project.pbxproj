@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A1C9F992FE852CA000F74DC /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1C9F982FE852CA000F74DC /* FirebaseAI */; };
+		4A1C9F9B2FE852CA000F74DC /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */; };
+		4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16C92FCAE02300EFF232 /* MWDATCamera */; };
+		4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CB2FCAE02300EFF232 /* MWDATCore */; };
+		4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */; };
+		4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */; };
+		4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */; };
+		4AFF16D52FCAE03300EFF232 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16D42FCAE03300EFF232 /* GoogleGenerativeAI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4AFF16AE2FCADF8A00EFF232 /* SmartEyesPrototypeV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartEyesPrototypeV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4AFF16B02FCADF8A00EFF232 /* SmartEyesPrototypeV1 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SmartEyesPrototypeV1;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AFF16AB2FCADF8A00EFF232 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1C9F9B2FE852CA000F74DC /* FirebaseAILogic in Frameworks */,
+				4A1C9F992FE852CA000F74DC /* FirebaseAI in Frameworks */,
+				4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */,
+				4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */,
+				4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */,
+				4AFF16D52FCAE03300EFF232 /* GoogleGenerativeAI in Frameworks */,
+				4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */,
+				4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AFF16A52FCADF8A00EFF232 = {
+			isa = PBXGroup;
+			children = (
+				4AFF16B02FCADF8A00EFF232 /* SmartEyesPrototypeV1 */,
+				4AFF16AF2FCADF8A00EFF232 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AFF16AF2FCADF8A00EFF232 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AFF16AE2FCADF8A00EFF232 /* SmartEyesPrototypeV1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AFF16AD2FCADF8A00EFF232 /* SmartEyesPrototypeV1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AFF16B92FCADF8B00EFF232 /* Build configuration list for PBXNativeTarget "SmartEyesPrototypeV1" */;
+			buildPhases = (
+				4AFF16AA2FCADF8A00EFF232 /* Sources */,
+				4AFF16AB2FCADF8A00EFF232 /* Frameworks */,
+				4AFF16AC2FCADF8A00EFF232 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4AFF16B02FCADF8A00EFF232 /* SmartEyesPrototypeV1 */,
+			);
+			name = SmartEyesPrototypeV1;
+			packageProductDependencies = (
+				4AFF16C92FCAE02300EFF232 /* MWDATCamera */,
+				4AFF16CB2FCAE02300EFF232 /* MWDATCore */,
+				4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */,
+				4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */,
+				4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */,
+				4AFF16D42FCAE03300EFF232 /* GoogleGenerativeAI */,
+				4A1C9F982FE852CA000F74DC /* FirebaseAI */,
+				4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */,
+			);
+			productName = SmartEyesPrototypeV1;
+			productReference = 4AFF16AE2FCADF8A00EFF232 /* SmartEyesPrototypeV1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AFF16A62FCADF8A00EFF232 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					4AFF16AD2FCADF8A00EFF232 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+				};
+			};
+			buildConfigurationList = 4AFF16A92FCADF8A00EFF232 /* Build configuration list for PBXProject "SmartEyesPrototypeV1" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AFF16A52FCADF8A00EFF232;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */,
+				4AFF16D32FCAE03300EFF232 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				4A1C9F972FE852CA000F74DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4AFF16AF2FCADF8A00EFF232 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AFF16AD2FCADF8A00EFF232 /* SmartEyesPrototypeV1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AFF16AC2FCADF8A00EFF232 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AFF16AA2FCADF8A00EFF232 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4AFF16B72FCADF8B00EFF232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AFF16B82FCADF8B00EFF232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AFF16BA2FCADF8B00EFF232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to discover and connect to Meta Wearables smart glasses.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to capture images or stream local simulation feed for inspection analysis.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Hey Gaze\" wake word and speak inspection questions.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.glisic.SmartEyesPrototypeV1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AFF16BB2FCADF8B00EFF232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to discover and connect to Meta Wearables smart glasses.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to capture images or stream local simulation feed for inspection analysis.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Hey Gaze\" wake word and speak inspection questions.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.glisic.SmartEyesPrototypeV1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AFF16A92FCADF8A00EFF232 /* Build configuration list for PBXProject "SmartEyesPrototypeV1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AFF16B72FCADF8B00EFF232 /* Debug */,
+				4AFF16B82FCADF8B00EFF232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AFF16B92FCADF8B00EFF232 /* Build configuration list for PBXNativeTarget "SmartEyesPrototypeV1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AFF16BA2FCADF8B00EFF232 /* Debug */,
+				4AFF16BB2FCADF8B00EFF232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A1C9F972FE852CA000F74DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.15.0;
+			};
+		};
+		4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
+		4AFF16D32FCAE03300EFF232 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A1C9F982FE852CA000F74DC /* FirebaseAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A1C9F972FE852CA000F74DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAI;
+		};
+		4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A1C9F972FE852CA000F74DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAILogic;
+		};
+		4AFF16C92FCAE02300EFF232 /* MWDATCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCamera;
+		};
+		4AFF16CB2FCAE02300EFF232 /* MWDATCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCore;
+		};
+		4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATDisplay;
+		};
+		4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATMockDevice;
+		};
+		4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATMockDeviceTestClient;
+		};
+		4AFF16D42FCAE03300EFF232 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AFF16D32FCAE03300EFF232 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4AFF16A62FCADF8A00EFF232 /* Project object */;
+}

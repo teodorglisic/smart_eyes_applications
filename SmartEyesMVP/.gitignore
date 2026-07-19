@@ -1,0 +1,33 @@
+# OS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode user data and build artifacts
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+
+# Swift Package Manager build folder
+.build/
+
+# External cloned repositories
+meta-wearables-dat-ios/
+
+# Firebase credentials — never commit this
+GoogleService-Info.plist
+
+# Old thesis-repo .git backup — never track this
+.git-thesis-backup-DO-NOT-DELETE/
