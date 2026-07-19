@@ -14,7 +14,6 @@
 		4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */; };
 		4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */; };
 		4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */; };
-		4AFF16D52FCAE03300EFF232 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16D42FCAE03300EFF232 /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 				4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */,
 				4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */,
 				4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */,
-				4AFF16D52FCAE03300EFF232 /* GoogleGenerativeAI in Frameworks */,
 				4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */,
 				4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */,
 			);
@@ -89,7 +87,6 @@
 				4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */,
 				4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */,
 				4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */,
-				4AFF16D42FCAE03300EFF232 /* GoogleGenerativeAI */,
 				4A1C9F982FE852CA000F74DC /* FirebaseAI */,
 				4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */,
 			);
@@ -123,7 +120,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */,
-				4AFF16D32FCAE03300EFF232 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 				4A1C9F972FE852CA000F74DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -398,14 +394,6 @@
 				minimumVersion = 0.7.0;
 			};
 		};
-		4AFF16D32FCAE03300EFF232 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/generative-ai-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.6;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -443,11 +431,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
 			productName = MWDATMockDeviceTestClient;
-		};
-		4AFF16D42FCAE03300EFF232 /* GoogleGenerativeAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16D32FCAE03300EFF232 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
-			productName = GoogleGenerativeAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
