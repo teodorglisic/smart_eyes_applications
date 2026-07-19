@@ -165,18 +165,21 @@ sequenceDiagram
     participant SM as SpeechManager
 
     User->>CV: Tap "ANALYSE CURRENT FRAME" (or say "inspect")
-    CV->>CV: selectedTab = Audit Log; isAnalyzing = true
+    Note over CV: selectedTab = Audit Log<br/>isAnalyzing = true
+    
     alt high-res capture
         CV->>WM: capturePhoto()
         WM->>Glasses: stream.capturePhoto(format: .jpeg)
         Glasses-->>WM: photoDataPublisher event (JPEG bytes)
         WM-->>CV: UIImage
     else low-res (stream frame)
-        CV->>CV: use wearableManager.currentFrame (360x640 @ 2 FPS)
+        Note over CV: use wearableManager.currentFrame (360x640 @ 2 FPS)
     end
+    
     CV->>GM: analyzeFrame(image, mode, customPrompt)
-    GM->>GM: compressImageForAPI() -> resize to max 1920px, JPEG q=0.95
-    GM->>GM: select systemInstruction for InspectionMode (phase1/2/3)
+    Note over GM: compressImageForAPI()<br/>resize to max 1920px, JPEG q=0.95
+    Note over GM: select systemInstruction for InspectionMode (phase1/2/3)
+    
     GM->>FB: FirebaseAI.firebaseAI(backend: .googleAI()).generativeModel(...)
     GM->>FB: generateContent([InlineDataPart(jpeg), TextPart(prompt)])
     FB->>Gem: forward multimodal request
