@@ -388,7 +388,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 0.7.0;
 			};
 		};
