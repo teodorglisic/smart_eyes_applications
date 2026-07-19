@@ -110,20 +110,20 @@ sequenceDiagram
     U->>CV: Tap "Take Photo" (Inspection tab)
     CV->>WM: capturePhoto()
     WM-->>CV: high-res UIImage (or stream-frame fallback)
-    CV->>CV: Post photo to Audit Log, switch to Audit Log tab
+    Note over CV: Post photo to Audit Log,<br/>switch to Audit Log tab
     U->>VQ: Tap mic, speak question
     VQ-->>CV: liveTranscript (mirrored into editable text field)
     U->>CV: Tap "Send"
     CV->>GM: analyzeFrame(image, useCase, prompt, isFollowUp)
     alt first turn for this photo
-        GM->>FB: model.startChat(); sendMessage([InlineDataPart(image), TextPart(prompt)])
+        GM->>FB: startChat and sendMessage with image and prompt
     else follow-up question
-        GM->>FB: chat.sendMessage([TextPart(prompt)])
+        GM->>FB: chat.sendMessage with prompt
     end
     FB-->>GM: GenerateContentResponse (text + usageMetadata)
     GM-->>CV: answer text
-    CV->>TM: logTrial(latency, tokens, severity, aiModel, ...)
-    CV->>SM: speak(answer)   // only if voice output enabled
+    CV->>TM: logTrial with metrics
+    CV->>SM: speak(answer) - only if voice output enabled
     CV->>U: render chat bubble + compliance badge + telemetry footer
 ```
 
