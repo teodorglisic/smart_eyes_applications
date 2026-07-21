@@ -11,9 +11,6 @@
 		4A1C9F9B2FE852CA000F74DC /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */; };
 		4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16C92FCAE02300EFF232 /* MWDATCamera */; };
 		4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CB2FCAE02300EFF232 /* MWDATCore */; };
-		4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */; };
-		4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */; };
-		4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +32,7 @@
 			files = (
 				4A1C9F9B2FE852CA000F74DC /* FirebaseAILogic in Frameworks */,
 				4A1C9F992FE852CA000F74DC /* FirebaseAI in Frameworks */,
-				4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */,
 				4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */,
-				4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */,
-				4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */,
 				4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,9 +78,6 @@
 			packageProductDependencies = (
 				4AFF16C92FCAE02300EFF232 /* MWDATCamera */,
 				4AFF16CB2FCAE02300EFF232 /* MWDATCore */,
-				4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */,
-				4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */,
-				4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */,
 				4A1C9F982FE852CA000F74DC /* FirebaseAI */,
 				4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */,
 			);
@@ -391,7 +382,7 @@
 			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.0;
+				minimumVersion = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -416,21 +407,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
 			productName = MWDATCore;
-		};
-		4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
-			productName = MWDATDisplay;
-		};
-		4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
-			productName = MWDATMockDevice;
-		};
-		4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
-			productName = MWDATMockDeviceTestClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
