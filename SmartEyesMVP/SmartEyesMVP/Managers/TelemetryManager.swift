@@ -183,7 +183,7 @@ public class TelemetryManager: ObservableObject {
         let tempDir = FileManager.default.temporaryDirectory
         let fileURL = tempDir.appendingPathComponent("smart_eyes_telemetry_\(Int(Date().timeIntervalSince1970)).csv")
         
-        var csvString = "trial_id;;timestamp;;phase;;test_case;;source;;capture_mode;;image_width;;image_height;;latency_seconds;;custom_prompt;;parsed_severity;;is_correct;;rating;;ai_model;;output;;simulation;;text_input_tokens;;image_input_tokens;;total_input_tokens;;thinking_tokens;;output_tokens;;total_tokens\n"
+        var csvString = "trial_id;;timestamp;;phase;;test_case;;source;;capture_mode;;image_width;;image_height;;latency_seconds;;custom_prompt;;parsed_severity;;is_correct;;rating;;ai_model;;output;;response_status;;text_input_tokens;;image_input_tokens;;total_input_tokens;;thinking_tokens;;output_tokens;;total_tokens\n"
         
         let formatter = ISO8601DateFormatter()
         
@@ -205,14 +205,12 @@ public class TelemetryManager: ObservableObject {
             let aiModel = record.aiModel ?? "N/A"
             let output = escapeCSVField(record.rawResponseText)
             
-            let simulationStatus: String
+            let responseStatus: String
             let lowerResponse = record.rawResponseText.lowercased()
             if lowerResponse.contains("api error:") || lowerResponse.contains("error:") {
-                simulationStatus = "api_err"
-            } else if lowerResponse.contains("(simulation)") || record.source == "simulator" {
-                simulationStatus = "sim"
+                responseStatus = "api_err"
             } else {
-                simulationStatus = "data_ok"
+                responseStatus = "data_ok"
             }
             
             let textInputStr    = record.textInputTokens  != nil ? "\(record.textInputTokens!)"  : "N/A"
@@ -222,7 +220,7 @@ public class TelemetryManager: ObservableObject {
             let outputTokensStr = record.outputTokens     != nil ? "\(record.outputTokens!)"     : "N/A"
             let totalTokensStr  = record.totalTokens      != nil ? "\(record.totalTokens!)"      : "N/A"
 
-            csvString += "\(id);;\(timestamp);;\(phase);;Please enter test case;;\(source);;\(captureMode);;\(width);;\(height);;\(latency);;\"\(customPrompt)\";;\(parsedSeverity);;\(isCorrect);;\(rating);;\(aiModel);;\"\(output)\";;\(simulationStatus);;\(textInputStr);;\(imageInputStr);;\(totalInputStr);;\(thinkingStr);;\(outputTokensStr);;\(totalTokensStr)\n"
+            csvString += "\(id);;\(timestamp);;\(phase);;Please enter test case;;\(source);;\(captureMode);;\(width);;\(height);;\(latency);;\"\(customPrompt)\";;\(parsedSeverity);;\(isCorrect);;\(rating);;\(aiModel);;\"\(output)\";;\(responseStatus);;\(textInputStr);;\(imageInputStr);;\(totalInputStr);;\(thinkingStr);;\(outputTokensStr);;\(totalTokensStr)\n"
         }
         
         do {

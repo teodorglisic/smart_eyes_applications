@@ -17,10 +17,10 @@ This copy has had all developer-specific credentials removed. Before it will bui
 | `SmartEyesApp.swift` | App entry point. Calls `FirebaseApp.configure()` and `Wearables.configure()` at launch, and routes the Meta AI companion app's registration callback URL to `WearableManager`. |
 | `WearableManager.swift` | Wraps the Meta Wearables Device Access Toolkit (DAT) SDK — registration, device discovery, session lifecycle, camera streaming, and photo capture. See below for how this works. |
 | `GeminiManager.swift` | Wraps Firebase AI Logic (Gemini) — defines the four inspection use cases, runs multi-turn analysis conversations, and tracks token telemetry. See below for how this works. |
-| `ContentView.swift` | Main SwiftUI dashboard — three tabs: Setup, Inspection, Audit Log. |
+| `ContentView.swift` | Main SwiftUI dashboard — three tabs: Setup, Inspection, Chat Log. |
 | `VoiceQuestionManager.swift` | Tap-to-ask speech-to-text: captures a spoken follow-up question after a photo is taken. |
 | `SpeechManager.swift` | Local text-to-speech playback of analysis results. |
-| `TelemetryManager.swift` | Logs every analysis trial locally and exports it as CSV/JSON; backs the Audit Log tab's feedback (thumbs up/down, star rating). |
+| `TelemetryManager.swift` | Logs every analysis trial locally and exports it as CSV/JSON; backs the Chat Log tab's feedback (thumbs up/down, star rating). |
 | `Info.plist` | iOS background modes, custom URL scheme, and the `MWDAT` SDK configuration block. |
 
 ---
@@ -35,12 +35,10 @@ The glasses integration is built on Meta's [Wearables Device Access Toolkit for 
 4. **Stream** — a camera stream is added to the session with a `StreamConfiguration`. This app deliberately requests the lowest bandwidth profile the SDK offers (`resolution: .low` / 360×640, `frameRate: 2`) — smart glasses only have Bluetooth Classic bandwidth to work with, and pushing more than that starves the higher-priority high-res photo capture. Frame, state, and error callbacks are wired via `videoFramePublisher`, `statePublisher`, and `errorPublisher`.
 5. **Capture** — `capturePhoto(format: .jpeg)` triggers an out-of-band high-resolution JPEG capture over the stream's `photoDataPublisher`, independent of the low-res live preview.
 
-**Simulator fallback (not part of Meta's SDK):** when running in the iOS Simulator, `WearableManager` skips the SDK entirely and drives a self-contained mock mode instead — a timer-generated placeholder frame stream and a `capturePhoto()` that just returns the current mock frame. This lets the rest of the app (Gemini analysis, telemetry, UI) be developed and demoed without physical glasses.
-
 **A few things worth knowing before extending this:**
 - Publishing to the App Store isn't supported today — the SDK relies on Apple's `ExternalAccessory` framework (see `UISupportedExternalAccessoryProtocols` in `Info.plist`), which requires MFi certification Meta hasn't completed yet.
 - Delivered stream frames are adaptively compressed to fit available Bluetooth bandwidth; if image quality looks worse than expected, lowering resolution/frame rate further (rather than raising them) can actually help.
-- The SDK ships a Mock Device Kit for testing without physical hardware, separate from this app's own simulator fallback above.
+- This build always talks to real hardware and a real Firebase backend — there's no built-in mock/simulator fallback anymore, so testing requires paired glasses and a configured `GoogleService-Info.plist`. (The SDK does ship its own separate Mock Device Kit for testing without physical hardware, if you need that: `MWDATMockDevice`/`MWDATMockDeviceTestClient`, not currently linked into this target.)
 
 Full API reference, permission flows, session-state details, and the official sample app are in [Meta's iOS integration guide](https://wearables.developer.meta.com/docs/develop/dat/build-integration-ios/) and the [`meta-wearables-dat-ios` repo](https://github.com/facebook/meta-wearables-dat-ios).
 
@@ -55,7 +53,7 @@ Full API reference, permission flows, session-state details, and the official sa
 - **Multi-turn conversation**: the first question against a photo opens a `Chat` and sends the image + prompt together; follow-up questions about the *same* photo reuse that `Chat` (`isFollowUp: true`) so the image doesn't need to be re-sent. Retaking the photo or switching use case calls `startNewConversation()` to reset it.
 - **Retry logic**: only genuinely transient backend errors (HTTP 500/503, "model overloaded") get retried, up to 3 attempts with backoff — a 404 (retired model) or 429 (quota exhausted) fails immediately instead of hammering a dead endpoint.
 - **Token telemetry**: every response's `usageMetadata` (text/image input tokens, output tokens, thinking tokens, total) is captured and handed to `TelemetryManager`.
-- **Simulation fallback**: if Firebase isn't configured, `analyzeFrame` returns a randomized, clearly-labeled `(SIMULATION)` response per use case instead of failing — useful for UI development without live credentials.
+- **No Firebase configured**: `analyzeFrame` returns a plain `Error: Firebase is not configured...` string rather than a fake result — there's no simulated/canned response fallback in this build.
 
 The anti-hallucination guideline (`UseCase.safeFailureGuideline`) is appended to every use case's system prompt: the model is instructed to say *why* it can't answer (out of frame, too dark, obstructed, etc.) rather than guess.
 
@@ -67,9 +65,9 @@ The anti-hallucination guideline (`UseCase.safeFailureGuideline`) is appended to
 
 ---
 
-## Telemetry & Audit Log
+## Telemetry & Chat Log
 
-Every analysis is logged locally by `TelemetryManager` (`ContentView.swift` calls `logTrial` right after each Gemini response) — timestamp, use case, capture source (live device vs. simulator), latency, prompt/response text, parsed severity, model name, and the full token breakdown. The Audit Log tab lets the technician mark a result correct/incorrect and give it a 1-5 star rating (`submitFeedback`), and can export the whole log as CSV or JSON, or purge it.
+Every analysis is logged locally by `TelemetryManager` (`ChatLogView.swift` calls `logTrial` right after each Gemini response) — timestamp, use case, capture mode, latency, prompt/response text, parsed severity, model name, and the full token breakdown. The Chat Log tab lets the technician mark a result correct/incorrect and give it a 1-5 star rating (`submitFeedback`), and can export the whole log as CSV or JSON, or purge it.
 
 One known rough edge: the CSV export always writes a `test_case` column as the literal string `"Please enter test case"` — it's wired for a structured field that was never populated. Harmless (every other column is real data), just not actionable as-is.
 
@@ -80,7 +78,7 @@ One known rough edge: the CSV export always writes a `test_case` column as the l
 1. **Register the glasses**: turn them on, open the Meta AI companion app, ensure Developer Mode is on, then run this app and tap Register — you'll be bounced to the Meta AI app to grant Camera/Microphone permissions and back again.
 2. **Inspection tab**: once connected, the live low-res preview appears; pick a use case (Pipe Analysis, Gauge Reading, Anomaly Detection, or Workplace Safety), then capture a frame.
 3. Ask a question by voice (tap-to-ask) or type one; Gemini's response streams into the chat, and follow-ups about the same photo stay in context.
-4. **Audit Log tab**: review past trials, rate accuracy, export telemetry.
+4. **Chat Log tab**: review past trials, rate accuracy, export telemetry. Tapping "Cancel" here discards the in-progress photo/conversation and jumps back to the Inspection tab.
 5. **Setup tab**: switch the target Gemini model (Gemini 3.5 Flash by default, plus other Gemini/Gemma variants), toggle voice output, manage device registration.
 
 ---

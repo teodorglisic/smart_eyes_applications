@@ -11,12 +11,10 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>smarteyesmvp</string>
+				<string>smarteyesapp</string>
 			</array>
 		</dict>
 	</array>
-	<key>GEMINI_API_KEY</key>
-	<string>Your actual API key here</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb-viewapp</string>
@@ -30,7 +28,7 @@
 			<true/>
 		</dict>
 		<key>AppLinkURLScheme</key>
-		<string>smarteyesmvp://</string>
+		<string>smarteyesapp://</string>
 		<key>ClientToken</key>
 		<string>YOUR_META_CLIENT_TOKEN</string>
 		<key>DAMEnabled</key>

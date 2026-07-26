@@ -11,18 +11,28 @@
 		4A1C9F9B2FE852CA000F74DC /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */; };
 		4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16C92FCAE02300EFF232 /* MWDATCamera */; };
 		4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CB2FCAE02300EFF232 /* MWDATCore */; };
-		4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */; };
-		4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */; };
-		4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4AFF16AE2FCADF8A00EFF232 /* SmartEyesPrototypeV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartEyesPrototypeV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4AD502A83016ADD20010808E /* Exceptions for "SmartEyesPrototypeV1" folder in "SmartEyesPrototypeV1" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4AFF16AD2FCADF8A00EFF232 /* SmartEyesPrototypeV1 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4AFF16B02FCADF8A00EFF232 /* SmartEyesPrototypeV1 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4AD502A83016ADD20010808E /* Exceptions for "SmartEyesPrototypeV1" folder in "SmartEyesPrototypeV1" target */,
+			);
 			path = SmartEyesPrototypeV1;
 			sourceTree = "<group>";
 		};
@@ -35,10 +45,7 @@
 			files = (
 				4A1C9F9B2FE852CA000F74DC /* FirebaseAILogic in Frameworks */,
 				4A1C9F992FE852CA000F74DC /* FirebaseAI in Frameworks */,
-				4AFF16CE2FCAE02300EFF232 /* MWDATDisplay in Frameworks */,
 				4AFF16CA2FCAE02300EFF232 /* MWDATCamera in Frameworks */,
-				4AFF16D22FCAE02300EFF232 /* MWDATMockDeviceTestClient in Frameworks */,
-				4AFF16D02FCAE02300EFF232 /* MWDATMockDevice in Frameworks */,
 				4AFF16CC2FCAE02300EFF232 /* MWDATCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,9 +91,6 @@
 			packageProductDependencies = (
 				4AFF16C92FCAE02300EFF232 /* MWDATCamera */,
 				4AFF16CB2FCAE02300EFF232 /* MWDATCore */,
-				4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */,
-				4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */,
-				4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */,
 				4A1C9F982FE852CA000F74DC /* FirebaseAI */,
 				4A1C9F9A2FE852CA000F74DC /* FirebaseAILogic */,
 			);
@@ -279,16 +283,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SmartEyesPrototypeV1/Info.plist";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to discover and connect to Meta Wearables smart glasses.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to capture images or stream local simulation feed for inspection analysis.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Hey Gaze\" wake word and speak inspection questions.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Inspect\" wake word and speak inspection questions.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -303,6 +307,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.glisic.SmartEyesPrototypeV1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -318,16 +323,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SmartEyesPrototypeV1/Info.plist";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to discover and connect to Meta Wearables smart glasses.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to capture images or stream local simulation feed for inspection analysis.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Hey Gaze\" wake word and speak inspection questions.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Inspect\" wake word and speak inspection questions.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -342,6 +347,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.glisic.SmartEyesPrototypeV1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -388,8 +394,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
 			requirement = {
-				kind = exactVersion;
-				version = 0.7.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -414,21 +420,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
 			productName = MWDATCore;
-		};
-		4AFF16CD2FCAE02300EFF232 /* MWDATDisplay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
-			productName = MWDATDisplay;
-		};
-		4AFF16CF2FCAE02300EFF232 /* MWDATMockDevice */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
-			productName = MWDATMockDevice;
-		};
-		4AFF16D12FCAE02300EFF232 /* MWDATMockDeviceTestClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AFF16C82FCAE02300EFF232 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
-			productName = MWDATMockDeviceTestClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
