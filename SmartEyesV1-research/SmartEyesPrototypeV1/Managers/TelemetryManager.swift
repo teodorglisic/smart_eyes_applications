@@ -161,23 +161,6 @@ public class TelemetryManager: ObservableObject {
         }
     }
     
-    /// Generates a temporary JSON file path containing the entire log history
-    public func exportAsJSON() -> URL? {
-        do {
-            let tempDir = FileManager.default.temporaryDirectory
-            let fileURL = tempDir.appendingPathComponent("smart_eyes_telemetry_\(Int(Date().timeIntervalSince1970)).json")
-            
-            let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
-            let data = try encoder.encode(records)
-            try data.write(to: fileURL)
-            return fileURL
-        } catch {
-            print("JSON export failed: \(error)")
-            return nil
-        }
-    }
-    
     /// Formats flat data to CSV format and returns the temporary file path
     public func exportAsCSV() -> URL? {
         let tempDir = FileManager.default.temporaryDirectory

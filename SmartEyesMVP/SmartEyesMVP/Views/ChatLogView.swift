@@ -576,11 +576,6 @@ struct ChatLogView: View {
         shareFile(url: url)
     }
 
-    private func exportJSON() {
-        guard let url = TelemetryManager.shared.exportAsJSON() else { return }
-        shareFile(url: url)
-    }
-
     private func shareFile(url: URL) {
         let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
 
