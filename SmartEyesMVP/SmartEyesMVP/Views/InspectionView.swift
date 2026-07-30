@@ -218,7 +218,7 @@ struct InspectionView: View {
                 .font(.system(size: 14, weight: .bold, design: .monospaced))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
-                .frame(height: 44)
+                .frame(height: 70)
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .fill(canScan && !session.isCapturingPhoto ? Color.green : Color.gray.opacity(0.3))
