@@ -1,3 +1,6 @@
 GoogleService-Info.plist
 *.docx
 .DS_Store
+*.tex
+CLAUDE.md
+claude_documentation.md
