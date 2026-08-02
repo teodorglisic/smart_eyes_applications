@@ -50,6 +50,8 @@ The glasses integration is built on Meta's [Wearables Device Access Toolkit for 
 
 > **Why 2 FPS?** This wasn't the starting point — it's a downgrade. Earlier iterations ran the live preview at a higher frame rate/resolution, but that had to be scaled back specifically so the separate high-resolution photo capture (1080×1440) could be enforced reliably. The Bluetooth link only has so much bandwidth to share between the continuous live preview and the on-demand high-res capture; a richer live preview left too little headroom for the high-res capture to complete before the SDK's watchdog timeout fired, so captures would silently fail or come back corrupted. Starving the live preview down to the minimum useful frame rate fixed it — a choppier live view in service of every capture reliably returning a usable high-res image.
 
+The capture call is also defended at the app level, not left entirely to the SDK's own watchdog: after triggering `capturePhoto(.jpeg)`, `WearableManager` polls for up to 6 seconds (checking every 100ms) for the photo-data publisher to deliver a result, and if the stream drops mid-capture it waits briefly and automatically calls `startStream()` again rather than leaving the session dead. If no high-res photo arrives in time, the caller doesn't just fail — `InspectionView.triggerInspection()` falls back to whatever low-res live frame was already on screen and sends that for analysis instead.
+
 **Simulator fallback (not part of Meta's SDK):** when running in the iOS Simulator, `WearableManager` skips the SDK entirely and drives a self-contained mock mode instead — a timer-generated placeholder frame (grid overlay, rotating crosshair, live clock) and a `capturePhoto()` that just returns the current mock frame. This lets the rest of the app (Gemini analysis, telemetry, UI) be developed and demoed without physical glasses. A "Switch to Simulation" / "Switch to Live Device" toggle on the Audit Log tab also lets you flip mock mode on/off manually, e.g. when running on a physical iPhone.
 
 **A few things worth knowing before extending this:**
@@ -73,6 +75,8 @@ This build's analysis is organized around the thesis's three-phase empirical tes
 
 Each `analyzeFrame` call is a single-shot `generateContent`, not a multi-turn chat (unlike the MVP build, there's no follow-up-in-context flow here — every question re-sends the photo). Every response's `usageMetadata` (text/image input tokens, output tokens, thinking tokens, total) is captured and handed to `TelemetryManager`. If Firebase isn't configured, `analyzeFrame` returns a randomized, clearly-labeled `(SIMULATION)` response drawn from that phase's canned `mockResponses` instead of failing — useful for UI development without live credentials.
 
+Every captured image is also run through `compressImageForAPI()` first, which always re-encodes it as JPEG at 0.95 quality and would additionally downscale it if either dimension exceeded 1920px. In practice that downscale branch never fires — the two possible sources are the 1080×1440 high-res capture and the 360×640 live stream frame (used as a fallback, or selectable directly via the low-res analyze action below), and both are already well under 1920px — so today this function only ever compresses, it never resizes.
+
 ---
 
 ## Voice Control
@@ -87,15 +91,17 @@ Each `analyzeFrame` call is a single-shot `generateContent`, not a multi-turn ch
 
 Every analysis is logged locally by `TelemetryManager` (`InspectionView.swift` calls `logTrial` right after each Gemini response) — timestamp, phase, capture source (live device vs. simulator), latency, prompt/response text, parsed severity, model name, and the full token breakdown. This is the core research instrumentation for the thesis's empirical evaluation: the Audit Log tab lets you mark a result correct/incorrect and give it a 1-5 star rating (`submitFeedback`), and export the whole log as CSV for analysis, or purge it between test sessions.
 
-One known rough edge: the CSV export always writes a `test_case` column as the literal string `"Please enter test case"` — it's wired for a structured field that was never populated. Harmless (every other column is real data), just not actionable as-is.
+"Parsed severity" isn't a structured field from Gemini — it's a client-side keyword match over the model's free-text answer (`InspectionView.triggerInspection`): the lowercased response is checked for "critical", then "warning", then "nominal"/"satisfactory", in that order, defaulting to "N/A" if none match. It's only as reliable as the model's wording, since nothing constrains the response to those terms.
+
+The CSV export writes a `test_case` column as the literal placeholder string `"Please enter test case"` for every row — this is intentional, not a bug: it's filled in by hand after export (in the analysis spreadsheet) to tag each row with which test case it belongs to, so token usage can be analyzed per test case.
 
 ---
 
 ## How to Test and Run
 
 1. **Register the glasses**: turn them on, open the Meta AI companion app, ensure Developer Mode is on, then run this app and tap Register — you'll be bounced to the Meta AI app to grant Camera/Microphone permissions and back again. (Or skip this entirely in the iOS Simulator, where mock mode activates automatically.)
-2. **Inspection tab**: once connected, the live low-res preview appears; pick a phase (Baseline / Industrial / Stress Test), then capture a frame — by button, or hands-free by saying "inspect".
-3. Gemini's response appears in the chat log along with the captured frame.
+2. **Inspection tab**: once connected, the live low-res preview appears; pick a phase (Baseline / Industrial / Stress Test), then trigger analysis. There are three separate capture/test actions here, not just one: **Analyse Current Frame (1080×1440)** captures and analyzes a fresh high-res photo (also what the "inspect" wake word triggers), **Analyse Current Frame (360×640)** skips high-res capture entirely and analyzes the live stream frame directly — handy for quick bandwidth/quality comparisons — and **Capture High-Res Only** saves a high-res photo straight to the Photos Library without calling Gemini at all, for verifying the glasses' camera independently of the AI pipeline.
+3. Gemini's response appears in the chat log along with the captured frame (for the two analyze actions).
 4. **Audit Log tab**: review past trials, rate accuracy, export telemetry for analysis, toggle Live Device/Simulation mode.
 5. **Settings (gear icon)**: switch the target Gemini model (Gemini 3.5 Flash by default, plus other Gemini/Gemma variants).
 

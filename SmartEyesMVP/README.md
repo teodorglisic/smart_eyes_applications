@@ -52,6 +52,8 @@ The glasses integration is built on Meta's [Wearables Device Access Toolkit for 
 
 > **Why 2 FPS?** This wasn't the starting point — it's a downgrade. Earlier iterations ran the live preview at a higher frame rate/resolution, but that had to be scaled back specifically so the separate high-resolution photo capture (1080×1440) could be enforced reliably. The Bluetooth link only has so much bandwidth to share between the continuous live preview and the on-demand high-res capture; a richer live preview left too little headroom for the high-res capture to complete before the SDK's watchdog timeout fired, so captures would silently fail or come back corrupted. Starving the live preview down to the minimum useful frame rate fixed it — a choppier live view in service of every "Take Photo" reliably returning a usable high-res image.
 
+The capture call is also defended at the app level, not left entirely to the SDK's own watchdog: after triggering `capturePhoto(.jpeg)`, `WearableManager` polls for up to 6 seconds (checking every 100ms) for the photo-data publisher to deliver a result, and if the stream drops mid-capture it waits briefly and automatically calls `startStream()` again rather than leaving the session dead. If no high-res photo arrives in time, the caller doesn't just fail — `InspectionView.capturePhotoStep()` falls back to whatever low-res live frame was already on screen and sends that for analysis instead.
+
 **A few things worth knowing before extending this:**
 - Publishing to the App Store isn't supported today — the SDK relies on Apple's `ExternalAccessory` framework (see `UISupportedExternalAccessoryProtocols` in `Info.plist`), which requires MFi certification Meta hasn't completed yet.
 - Delivered stream frames are adaptively compressed to fit available Bluetooth bandwidth; if image quality looks worse than expected, lowering resolution/frame rate further (rather than raising them) can actually help.
@@ -71,6 +73,7 @@ Full API reference, permission flows, session-state details, and the official sa
 - **Retry logic**: only genuinely transient backend errors (HTTP 500/503, "model overloaded") get retried, up to 3 attempts with backoff — a 404 (retired model) or 429 (quota exhausted) fails immediately instead of hammering a dead endpoint.
 - **Token telemetry**: every response's `usageMetadata` (text/image input tokens, output tokens, thinking tokens, total) is captured and handed to `TelemetryManager`.
 - **No Firebase configured**: `analyzeFrame` returns a plain `Error: Firebase is not configured...` string rather than a fake result — there's no simulated/canned response fallback in this build.
+- **Image pre-processing**: every captured image is run through `compressImageForAPI()` first, which always re-encodes it as JPEG at 0.95 quality and would additionally downscale it if either dimension exceeded 1920px. In practice that downscale branch never fires — the two possible sources are the 1080×1440 high-res capture and the 360×640 live stream frame (used as a fallback), and both are already well under 1920px — so today this function only ever compresses, it never resizes.
 
 The anti-hallucination guideline (`UseCase.safeFailureGuideline`) is appended to every use case's system prompt: the model is instructed to say *why* it can't answer (out of frame, too dark, obstructed, etc.) rather than guess.
 
@@ -88,7 +91,9 @@ The anti-hallucination guideline (`UseCase.safeFailureGuideline`) is appended to
 
 Every analysis is logged locally by `TelemetryManager` (`ChatLogView.swift` calls `logTrial` right after each Gemini response) — timestamp, use case, capture mode, latency, prompt/response text, parsed severity, model name, and the full token breakdown. The Chat Log tab lets the technician mark a result correct/incorrect and give it a 1-5 star rating (`submitFeedback`), and can export the whole log as CSV, or purge it.
 
-One known rough edge: the CSV export always writes a `test_case` column as the literal string `"Please enter test case"` — it's wired for a structured field that was never populated. Harmless (every other column is real data), just not actionable as-is.
+"Parsed severity" isn't a structured field from Gemini — it's a client-side keyword match over the model's free-text answer (`ChatLogView.sendQuestion`): the lowercased response is checked for "critical", then "warning", then "nominal"/"satisfactory", in that order, defaulting to "N/A" if none match. It's only as reliable as the model's wording, since nothing constrains the response to those terms.
+
+The CSV export writes a `test_case` column as the literal placeholder string `"Please enter test case"` for every row — this is intentional, not a bug: it's filled in by hand after export (in the analysis spreadsheet) to tag each row with which test case it belongs to, so token usage can be analyzed per test case.
 
 ---
 
