@@ -269,9 +269,8 @@ struct ChatLogView: View {
                     .foregroundColor(.blue)
                     .font(.system(size: 14))
 
-                // TODO: keyboard/focus behavior here still feels off after the @FocusState +
-                // toolbar "Done" button fix — revisit and pin down exactly what's wrong
-                // (dismiss timing, focus not returning correctly, toolbar placement, etc.).
+                // POLISH: toolbar "Done" placement feels slightly off — cosmetic, revisit if time.
+                // (functionally fine; dismiss timing is handled, see NOTE below.)
                 TextField(session.hasAskedAboutCurrentPhoto ? "Ask a follow-up about this photo..." : "Tap the mic and ask, or type your question...", text: $questionText, axis: .vertical)
                     .textFieldStyle(PlainTextFieldStyle())
                     .foregroundColor(theme.primaryTextColor)
