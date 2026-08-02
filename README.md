@@ -16,3 +16,15 @@ Each folder is a self-contained Xcode project with a single `README.md` at its t
 ## Before you build
 
 Both projects need their own Firebase config, Meta Wearables app credentials, and Apple Developer Team before they'll compile — see each project's `SETUP.md` for exact steps, or the "Reproduction & Setup Guide" section of the full documentation above.
+
+## License
+
+The original source code in this repository (both apps' Swift/SwiftUI code, documentation, and configuration) is © Teodor Glisic and licensed under the [MIT License](LICENSE) — see the `LICENSE` file at the repo root.
+
+This repo does **not** vendor any third-party SDK source — the Meta Wearables DAT SDK and the Firebase iOS SDK are both pulled in at build time via Swift Package Manager (see each project's `SETUP.md`), not committed here. They remain under their own, separate terms:
+
+- **Meta Wearables Device Access Toolkit (DAT SDK)** — a proprietary license under the [Meta Wearables Developer Terms](https://wearables.developer.meta.com/terms) and [Acceptable Use Policy](https://wearables.developer.meta.com/acceptable-use-policy), not open source. Notably, its terms prohibit redistributing the SDK itself, or using/redistributing it in any way that would subject it (or Meta) to an open-source license — this repo complies by only referencing it via SPM, never vendoring or modifying its source.
+- **Firebase iOS SDK** (`FirebaseAILogic`, `FirebaseCore`) — [Apache License 2.0](https://github.com/firebase/firebase-ios-sdk/blob/master/LICENSE), permissive.
+- **Google Gemini API** — accessed through Firebase AI Logic; usage is governed by Google's own Gemini API terms, separate from this repo's license.
+
+This project was originally built as part of a Bachelor Thesis at FHNW, in a client-adjacent context; the client has confirmed the repository can be made public, and no client data or proprietary client material is included here.

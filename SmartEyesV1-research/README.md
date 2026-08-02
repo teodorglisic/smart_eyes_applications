@@ -105,6 +105,8 @@ One known rough edge: the CSV export always writes a `test_case` column as the l
 
 Using the Meta Wearables DAT SDK means this app is subject to Meta's [Wearables Developer Terms](https://wearables.developer.meta.com/terms) and [Acceptable Use Policy](https://wearables.developer.meta.com/acceptable-use-policy); Meta may collect some data about how the app communicates with users' devices per their [Privacy Policy](https://www.meta.com/legal/privacy-policy/). Like the MVP build, this project has opted out of that analytics collection (`MWDAT.Analytics.OptOut = true` in `Info.plist`) — see the [SDK repo's README](https://github.com/facebook/meta-wearables-dat-ios#opting-out-of-data-collection) if you want to change that.
 
+This app's own source code (this folder) is MIT-licensed — see [`../LICENSE`](../LICENSE) and the "License" section of the [root README](../README.md) for the full breakdown of what that covers vs. the third-party SDKs above.
+
 ---
 
 ## More documentation
