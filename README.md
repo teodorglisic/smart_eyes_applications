@@ -11,11 +11,11 @@ Each folder is a self-contained Xcode project with a single `README.md` at its t
 
 ## Full documentation
 
-`Application_Documentation_Smart_Eyes.pdf` is the comprehensive architecture and setup reference for both apps — repository structure, full source listings for the key manager classes, the Meta DAT SDK integration walkthrough, data-flow diagrams, security/privacy notes, and a step-by-step reproduction guide (including glasses pairing and enabling Developer Mode in the Meta AI app).
+Each project has its own comprehensive technical documentation PDF — architecture and setup reference, repository structure, full source listings for the key manager classes, the Meta DAT SDK integration walkthrough, data-flow diagrams, security/privacy notes, and a step-by-step reproduction guide (including glasses pairing and enabling Developer Mode in the Meta AI app): [`SmartEyesMVP/FHNW_SmartEyes_MVP_Technical_Documentation.pdf`](SmartEyesMVP/FHNW_SmartEyes_MVP_Technical_Documentation.pdf) and [`SmartEyesV1-research/FHNW_SmartEyes_V1_Research_Technical_Documentation.pdf`](SmartEyesV1-research/FHNW_SmartEyes_V1_Research_Technical_Documentation.pdf).
 
 ## Before you build
 
-Both projects need their own Firebase config, Meta Wearables app credentials, and Apple Developer Team before they'll compile — see each project's `SETUP.md` for exact steps, or the "Reproduction & Setup Guide" section of the full documentation above.
+Both projects need their own Firebase config, Meta Wearables app credentials, and Apple Developer Team before they'll compile — see each project's `SETUP.md` for exact steps, or the "Step-by-Step Replication Guide" section of that project's documentation PDF above.
 
 ## License
 

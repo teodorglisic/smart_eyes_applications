@@ -6,7 +6,7 @@ The current, client-facing build of Smart Eyes — an iOS app that pairs with Me
 
 ## Setup
 
-This copy has had all developer-specific credentials removed. Before it will build, you need to supply your own Firebase project, Meta Wearables Developer Center credentials, and Apple Developer Team — see [`SETUP.md`](SETUP.md) for exact steps. Live-hardware testing also requires pairing the glasses with the Meta AI companion app and enabling **Developer Mode** there first (Section 11.4 of `Application_Documentation_Smart_Eyes.pdf` has the exact steps) — without it, an unpublished Xcode build can't register against the glasses at all.
+This copy has had all developer-specific credentials removed. Before it will build, you need to supply your own Firebase project, Meta Wearables Developer Center credentials, and Apple Developer Team — see [`SETUP.md`](SETUP.md) for exact steps. Live-hardware testing also requires pairing the glasses with the Meta AI companion app and enabling **Developer Mode** there first (Section 4.1, step 2 of `FHNW_SmartEyes_MVP_Technical_Documentation.pdf` has the exact steps) — without it, an unpublished Xcode build can't register against the glasses at all.
 
 This build always talks to real hardware and a real Firebase backend — there's no simulator/mock fallback here (see [`../SmartEyesV1-research`](../SmartEyesV1-research) for that).
 
@@ -117,7 +117,7 @@ This app's own source code (this folder) is MIT-licensed — see [`../LICENSE`](
 
 ## More documentation
 
-`Application_Documentation_Smart_Eyes.pdf` is the comprehensive documentation covering both apps: full source listings, architecture diagrams, ADRs, security/privacy notes, and a complete reproduction/setup guide (including glasses pairing and Developer Mode).
+[`FHNW_SmartEyes_MVP_Technical_Documentation.pdf`](FHNW_SmartEyes_MVP_Technical_Documentation.pdf) is this project's comprehensive documentation: full source listings, architecture diagrams, ADRs, security/privacy notes, and a complete reproduction/setup guide (including glasses pairing and Developer Mode). See [`../SmartEyesV1-research/FHNW_SmartEyes_V1_Research_Technical_Documentation.pdf`](../SmartEyesV1-research/FHNW_SmartEyes_V1_Research_Technical_Documentation.pdf) for the earlier prototype's documentation.
 
 ## References
 
