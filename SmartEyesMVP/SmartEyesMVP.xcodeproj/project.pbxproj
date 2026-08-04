@@ -296,7 +296,7 @@
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is needed when you tap the \"ASK BY VOICE\" button so you can dictate your chat messages instead of typing.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Microphone access is needed when you tap the \"ASK BY VOICE\" button so you can dictate your chat messages instead of typing.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -338,7 +338,7 @@
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is needed when you tap the \"ASK BY VOICE\" button so you can dictate your chat messages instead of typing.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Microphone access is needed when you tap the \"ASK BY VOICE\" button so you can dictate your chat messages instead of typing.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -293,9 +293,9 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to discover and connect to Meta Wearables smart glasses.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to capture images or stream local simulation feed for inspection analysis.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Inspect\" wake word and speak inspection questions.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Inspect\" wake word.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognise the \"Inspect\" wake word.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -334,9 +334,9 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to discover and connect to Meta Wearables smart glasses.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to capture images or stream local simulation feed for inspection analysis.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to stream live camera frames from the Meta Glasses to your iPhone over Wi-Fi.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Inspect\" wake word and speak inspection questions.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to listen for the \"Inspect\" wake word.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save captured inspection frames to your Photos app.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognize voice wake words and commands like \"Hey Gaze\".";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Needed to recognise the \"Inspect\" wake word.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
